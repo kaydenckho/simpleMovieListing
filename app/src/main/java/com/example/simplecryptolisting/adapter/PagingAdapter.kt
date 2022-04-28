@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.simplecryptolisting.model.PriceModel
-import com.example.simplecryptolisting.viewHolder.PriceVH
+import com.example.simplecryptolisting.ui.viewHolder.PriceVH
 import com.example.simplecryptolisting.R
 
 class PagingAdapter(val vm: ViewModel): PagingDataAdapter<PriceModel, PriceVH>(PROFILE_COMPARATOR) {

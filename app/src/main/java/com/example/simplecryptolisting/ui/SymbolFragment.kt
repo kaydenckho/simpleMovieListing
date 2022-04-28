@@ -1,6 +1,6 @@
 /** TagHive Android Dev Demo - Created by Ka Ho Cheung at 28/Apr/2022 **/
 
-package com.example.simplecryptolisting
+package com.example.simplecryptolisting.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +11,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.simplecryptolisting.adapter.PagingAdapter
 import com.example.simplecryptolisting.adapter.PagingLoadStateAdapter
-import com.example.simplecryptolisting.databinding.ActivityMainBinding
 import com.example.simplecryptolisting.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class SymbolFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!

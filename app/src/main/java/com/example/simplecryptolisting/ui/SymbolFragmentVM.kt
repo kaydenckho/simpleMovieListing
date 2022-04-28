@@ -1,4 +1,4 @@
-package com.example.simplecryptolisting
+package com.example.simplecryptolisting.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 @HiltViewModel
-class MainFragmentVM @Inject constructor() : ViewModel() {
+class SymbolFragmentVM @Inject constructor() : ViewModel() {
 
     @Inject
     lateinit var apiRepository: ApiRepository
@@ -32,8 +32,4 @@ class MainFragmentVM @Inject constructor() : ViewModel() {
             emit(it)
         }
     }
-
-    fun pagingListData() = Pager(PagingConfig(pageSize = 1, prefetchDistance = 5)) {
-        PagingSource(this)
-    }.flow.cachedIn(viewModelScope)
 }

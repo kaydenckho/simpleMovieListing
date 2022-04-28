@@ -3,7 +3,7 @@ package com.example.simplecryptolisting.adapter
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import com.example.simplecryptolisting.viewHolder.NetworkStateItemVH
+import com.example.simplecryptolisting.ui.viewHolder.NetworkStateItemVH
 
 class PagingLoadStateAdapter (
     private val adapter: PagingAdapter

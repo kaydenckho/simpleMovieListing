@@ -1,4 +1,4 @@
-package com.example.simplecryptolisting.viewHolder
+package com.example.simplecryptolisting.ui.viewHolder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -2,7 +2,7 @@ package com.example.simplecryptolisting.adapter
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.simplecryptolisting.MainFragmentVM
+import com.example.simplecryptolisting.ui.MainFragmentVM
 import com.example.simplecryptolisting.model.PriceModel
 
 class PagingSource(

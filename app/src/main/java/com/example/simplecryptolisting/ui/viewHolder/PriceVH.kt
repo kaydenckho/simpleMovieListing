@@ -1,6 +1,5 @@
-package com.example.simplecryptolisting.viewHolder
+package com.example.simplecryptolisting.ui.viewHolder
 
-import android.content.Intent
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
