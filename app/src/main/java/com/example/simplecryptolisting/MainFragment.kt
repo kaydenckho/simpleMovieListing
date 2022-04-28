@@ -31,11 +31,6 @@ class MainFragment : Fragment() {
         if (_binding == null){
             _binding = FragmentMainBinding.inflate(layoutInflater)
         }
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         val adapter = PagingAdapter(vm)
         val callback = object: PagingAdapter.PagingAdapterCallback{
             override fun onSymbolClick(symbol: String) {
@@ -52,5 +47,11 @@ class MainFragment : Fragment() {
                 adapter.submitData(it)
             }
         }
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 }

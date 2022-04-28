@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import com.example.simplecryptolisting.adapter.PagingAdapter
 import com.example.simplecryptolisting.adapter.PagingLoadStateAdapter
 import com.example.simplecryptolisting.databinding.ActivityMainBinding
+import com.example.simplecryptolisting.util.InternalDeepLink
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,6 +25,5 @@ class MainActivity : AppCompatActivity() {
             _binding = ActivityMainBinding.inflate(layoutInflater)
         }
         setContentView(binding.root)
-
     }
 }
