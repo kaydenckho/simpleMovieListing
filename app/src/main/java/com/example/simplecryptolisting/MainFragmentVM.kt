@@ -12,10 +12,11 @@ import com.example.simplecryptolisting.model.PriceModel
 import com.example.simplecryptolisting.network.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainActivityVM @Inject constructor() : ViewModel() {
+class MainFragmentVM @Inject constructor() : ViewModel() {
 
     @Inject
     lateinit var apiRepository: ApiRepository
@@ -23,8 +24,18 @@ class MainActivityVM @Inject constructor() : ViewModel() {
     val priceLiveData = MutableLiveData<List<PriceModel>>()
 
     fun getPrices() = flow<List<PriceModel>>{
-        apiRepository.getAllData().collect{
-            emit(it)
+        viewModelScope.launch {
+            apiRepository.getAllPrices().collect{
+                emit(it)
+            }
+        }
+    }
+
+    fun getSymbol(symbol: String) = flow<PriceModel>{
+        viewModelScope.launch {
+            apiRepository.getSymbol(symbol).collect{
+                emit(it)
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import com.example.simplecryptolisting.adapter.PagingAdapter
 import com.example.simplecryptolisting.adapter.PagingLoadStateAdapter
 import com.example.simplecryptolisting.databinding.ActivityMainBinding
@@ -17,24 +18,12 @@ class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
-    val vm: MainActivityVM by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (_binding == null){
             _binding = ActivityMainBinding.inflate(layoutInflater)
         }
         setContentView(binding.root)
-        val adapter = PagingAdapter(vm)
-        binding.listing.adapter = adapter.withLoadStateHeaderAndFooter(
-            header = PagingLoadStateAdapter(adapter),
-            footer = PagingLoadStateAdapter(adapter)
-        )
-        binding.listing.itemAnimator = null
-        lifecycleScope.launchWhenCreated {
-            vm.pagingListData().collect {
-                adapter.submitData(it)
-            }
-        }
+
     }
 }

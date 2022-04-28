@@ -2,11 +2,11 @@ package com.example.simplecryptolisting.adapter
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.simplecryptolisting.MainActivityVM
+import com.example.simplecryptolisting.MainFragmentVM
 import com.example.simplecryptolisting.model.PriceModel
 
 class PagingSource(
-    var vm: MainActivityVM,
+    var vm: MainFragmentVM,
 ) : PagingSource<Int, PriceModel>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PriceModel> {

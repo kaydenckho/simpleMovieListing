@@ -27,10 +27,17 @@ class PagingAdapter(val vm: ViewModel): PagingDataAdapter<PriceModel, PriceVH>(P
         }
     }
 
+    interface PagingAdapterCallback{
+        fun onSymbolClick(symbol: String)
+    }
+
+    var callback: PagingAdapterCallback? = null
+
     override fun onBindViewHolder(holder: PriceVH, position: Int) {
         val item = getItem(position)
         item?.let {
             holder.onBind(it)
+            holder.callback = callback
         }
     }
 
