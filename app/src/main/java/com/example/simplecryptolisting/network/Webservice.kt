@@ -24,5 +24,5 @@ interface Webservice {
     suspend fun getAllPrices(): List<PriceModel>
 
     @GET("sapi/v1/ticker/24hr")
-    suspend fun getSymbol(@Query("Symbol") symbol: String): PriceModel
+    suspend fun getSymbol(@Query("symbol") symbol: String): PriceModel
 }

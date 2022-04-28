@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="6">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listing"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/symbol"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/background"
-        android:clipToPadding="false"
-        android:paddingTop="16dp"
-        android:paddingBottom="34dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="@color/text"
+        android:layout_marginHorizontal="5dp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="@color/text"
+        android:layout_marginHorizontal="5dp"/>
+</GridLayout>
