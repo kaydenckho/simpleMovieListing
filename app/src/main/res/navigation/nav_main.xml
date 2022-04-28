@@ -9,12 +9,20 @@
         android:name="com.example.simplecryptolisting.ui.MainFragment"
         android:label="MainFragment">
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/symbolFragment"
+        android:name="com.example.simplecryptolisting.ui.SymbolFragment"
+        android:label="SymbolFragment">
+
         <deepLink app:uri="@string/internal_deeplink_symbol" />
 
         <argument
             android:name="symbol"
             app:argType="string"
             android:defaultValue=""/>
+
     </fragment>
 
 

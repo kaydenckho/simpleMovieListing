@@ -1,19 +1,21 @@
 package com.example.simplecryptolisting.util
 
-import android.app.Application
 import android.content.Context
 import android.net.Uri
 import android.view.View
 import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import com.example.simplecryptolisting.MyApplication
 import com.example.simplecryptolisting.R
 import com.google.gson.Gson
 import java.lang.reflect.Type
 
 fun InternalDeepLink(view: View) = InternalDeepLink(view.context, view.findNavController())
+fun InternalDeepLink(fragment: Fragment) = InternalDeepLink(MyApplication.getContext(), fragment.findNavController())
 
 class InternalDeepLink(val context: Context, val navController: NavController) {
 
@@ -41,11 +43,12 @@ class InternalDeepLink(val context: Context, val navController: NavController) {
         }
 
     }
-    fun goMainFragment(symbol: String){
+
+    fun goSymbolFragment(symbol: String){
         val deepLinkUrl = context.getString(R.string.internal_deeplink_symbol)
         val updatedUrl = deepLinkUrl
             .replace("{symbol}", symbol)
-        navDeepLinkCall(updatedUrl.toUri(), genNavOptions("", null, false))
+        navDeepLinkCall(updatedUrl.toUri(), genNavOptions("right", null, false))
     }
 
     private fun genNavOptions(slideInType: String, popUpId: Int?, inclusive: Boolean): NavOptions {

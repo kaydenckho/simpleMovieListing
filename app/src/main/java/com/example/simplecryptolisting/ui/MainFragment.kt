@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.simplecryptolisting.adapter.PagingAdapter
 import com.example.simplecryptolisting.adapter.PagingLoadStateAdapter
 import com.example.simplecryptolisting.databinding.FragmentMainBinding
+import com.example.simplecryptolisting.util.InternalDeepLink
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,9 +34,10 @@ class MainFragment : Fragment() {
         val adapter = PagingAdapter(vm)
         val callback = object: PagingAdapter.PagingAdapterCallback{
             override fun onSymbolClick(symbol: String) {
-
+                InternalDeepLink(this@MainFragment).goSymbolFragment(symbol)
             }
         }
+        adapter.callback = callback
         binding.listing.adapter = adapter.withLoadStateHeaderAndFooter(
             header = PagingLoadStateAdapter(adapter),
             footer = PagingLoadStateAdapter(adapter)
