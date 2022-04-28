@@ -1,3 +1,5 @@
+/** TagHive Android Dev Demo - Created by Ka Ho Cheung at 28/Apr/2022 **/
+
 package com.example.simplecryptolisting
 
 import androidx.appcompat.app.AppCompatActivity
@@ -12,11 +14,16 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
     val vm: MainActivityVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (_binding == null){
+            _binding = ActivityMainBinding.inflate(layoutInflater)
+        }
         setContentView(binding.root)
         val adapter = PagingAdapter(vm)
         binding.listing.adapter = adapter.withLoadStateHeaderAndFooter(

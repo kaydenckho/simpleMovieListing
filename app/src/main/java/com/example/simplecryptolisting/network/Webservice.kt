@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface Webservice {
 
@@ -20,6 +21,8 @@ interface Webservice {
     }
 
     @GET("sapi/v1/tickers/24hr")
-    suspend fun getData(): List<PriceModel>
+    suspend fun getAllPrices(): List<PriceModel>
 
+    @GET("sapi/v1/ticker/24hr")
+    suspend fun getSymbol(@Query("Symbol") symbol: String): PriceModel
 }

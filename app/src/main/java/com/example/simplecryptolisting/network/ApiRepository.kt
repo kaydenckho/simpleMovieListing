@@ -8,5 +8,12 @@ import javax.inject.Inject
 class ApiRepository @Inject constructor() {
 
     var client: Webservice = Webservice.webservice
-    suspend fun getAllData() : Flow<List<PriceModel>> = flow { emit(client.getData()) }
+
+    suspend fun getAllPrices() : Flow<List<PriceModel>> = flow {
+        emit(client.getAllPrices())
+    }
+
+    suspend fun getSymbol(symbol: String) : Flow<PriceModel> = flow {
+        emit(client.getSymbol(symbol))
+    }
 }
