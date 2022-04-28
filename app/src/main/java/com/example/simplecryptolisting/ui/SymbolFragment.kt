@@ -40,7 +40,16 @@ class SymbolFragment : Fragment() {
             vm.getSymbol(args.symbol)
             vm.priceLiveData.observe(viewLifecycleOwner){
                 binding.symbol.text = it.symbol
-                binding.price.text = it.askPrice
+                binding.baseAsset.text = it.baseAsset
+                binding.quoteAsset.text = it.quoteAsset
+                binding.openPrice.text = it.openPrice
+                binding.lowPrice.text = it.lowPrice
+                binding.highPrice.text = it.highPrice
+                binding.lastPrice.text = it.lastPrice
+                binding.volume.text = it.volume
+                binding.bidPrice.text = it.bidPrice
+                binding.askPrice.text = it.askPrice
+                binding.at.text = it.at
             }
         }
     }
