@@ -1,4 +1,4 @@
-package com.example.simplecryptolisting
+package com.example.simpleMovieListing
 
 import org.junit.Test
 

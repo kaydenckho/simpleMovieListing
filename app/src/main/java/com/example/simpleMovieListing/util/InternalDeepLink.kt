@@ -1,4 +1,4 @@
-package com.example.simplecryptolisting.util
+package com.example.simpleMovieListing.util
 
 import android.content.Context
 import android.net.Uri
@@ -9,8 +9,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.simplecryptolisting.MyApplication
-import com.example.simplecryptolisting.R
+import com.example.simpleMovieListing.MyApplication
+import com.example.simpleMovieListing.R
 import com.google.gson.Gson
 import java.lang.reflect.Type
 

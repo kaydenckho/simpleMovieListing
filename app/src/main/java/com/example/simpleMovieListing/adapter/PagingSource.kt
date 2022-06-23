@@ -1,9 +1,9 @@
-package com.example.simplecryptolisting.adapter
+package com.example.simpleMovieListing.adapter
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.simplecryptolisting.ui.MainFragmentVM
-import com.example.simplecryptolisting.model.PriceModel
+import com.example.simpleMovieListing.ui.MainFragmentVM
+import com.example.simpleMovieListing.model.PriceModel
 
 class PagingSource(
     var vm: MainFragmentVM,

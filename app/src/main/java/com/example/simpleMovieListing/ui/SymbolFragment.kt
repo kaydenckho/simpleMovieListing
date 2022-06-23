@@ -1,6 +1,6 @@
 /** TagHive Android Dev Demo - Created by Ka Ho Cheung at 28/Apr/2022 **/
 
-package com.example.simplecryptolisting.ui
+package com.example.simpleMovieListing.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.example.simplecryptolisting.databinding.FragmentSymbolBinding
+import com.example.simpleMovieListing.databinding.FragmentSymbolBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

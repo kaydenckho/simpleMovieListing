@@ -1,6 +1,6 @@
-package com.example.simplecryptolisting.network
+package com.example.simpleMovieListing.network
 
-import com.example.simplecryptolisting.model.PriceModel
+import com.example.simpleMovieListing.model.PriceModel
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

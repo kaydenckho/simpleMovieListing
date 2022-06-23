@@ -1,4 +1,4 @@
-package com.example.simplecryptolisting.ui.viewHolder
+package com.example.simpleMovieListing.ui.viewHolder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
-import com.example.simplecryptolisting.R
+import com.example.simpleMovieListing.R
 
 /**
  * A View Holder that can display a loading or have click action.

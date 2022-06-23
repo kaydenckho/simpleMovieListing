@@ -1,6 +1,6 @@
-package com.example.simplecryptolisting.network
+package com.example.simpleMovieListing.network
 
-import com.example.simplecryptolisting.model.PriceModel
+import com.example.simpleMovieListing.model.PriceModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

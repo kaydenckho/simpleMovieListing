@@ -1,6 +1,6 @@
-/** TagHive Android Dev Demo - Created by Ka Ho Cheung at 28/Apr/2022 **/
+/** Movie6 Android Dev Demo - Created by Ka Ho Cheung at 23/06/2022 **/
 
-package com.example.simplecryptolisting.ui
+package com.example.simpleMovieListing.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.simplecryptolisting.adapter.PagingAdapter
-import com.example.simplecryptolisting.adapter.PagingLoadStateAdapter
-import com.example.simplecryptolisting.databinding.FragmentMainBinding
-import com.example.simplecryptolisting.util.InternalDeepLink
+import com.example.simpleMovieListing.adapter.PagingAdapter
+import com.example.simpleMovieListing.adapter.PagingLoadStateAdapter
+import com.example.simpleMovieListing.databinding.FragmentMainBinding
+import com.example.simpleMovieListing.util.InternalDeepLink
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,10 +49,5 @@ class MainFragment : Fragment() {
             }
         }
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 }

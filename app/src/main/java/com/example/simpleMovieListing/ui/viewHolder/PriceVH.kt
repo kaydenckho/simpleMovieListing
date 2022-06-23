@@ -1,12 +1,12 @@
-package com.example.simplecryptolisting.ui.viewHolder
+package com.example.simpleMovieListing.ui.viewHolder
 
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
-import com.example.simplecryptolisting.model.PriceModel
-import com.example.simplecryptolisting.R
-import com.example.simplecryptolisting.adapter.PagingAdapter
+import com.example.simpleMovieListing.model.PriceModel
+import com.example.simpleMovieListing.R
+import com.example.simpleMovieListing.adapter.PagingAdapter
 
 class PriceVH(vm: ViewModel, itemView: View) : RecyclerView.ViewHolder(itemView) {
 

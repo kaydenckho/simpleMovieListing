@@ -1,16 +1,10 @@
 /** TagHive Android Dev Demo - Created by Ka Ho Cheung at 28/Apr/2022 **/
 
-package com.example.simplecryptolisting
+package com.example.simpleMovieListing
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
-import com.example.simplecryptolisting.adapter.PagingAdapter
-import com.example.simplecryptolisting.adapter.PagingLoadStateAdapter
-import com.example.simplecryptolisting.databinding.ActivityMainBinding
-import com.example.simplecryptolisting.util.InternalDeepLink
+import com.example.simpleMovieListing.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

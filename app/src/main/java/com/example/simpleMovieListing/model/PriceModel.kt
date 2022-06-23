@@ -1,4 +1,4 @@
-package com.example.simplecryptolisting.model
+package com.example.simpleMovieListing.model
 
 data class PriceModel(
     var symbol: String,

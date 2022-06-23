@@ -1,12 +1,10 @@
-package com.example.simplecryptolisting.ui
+package com.example.simpleMovieListing.ui
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.simplecryptolisting.model.PriceModel
-import com.example.simplecryptolisting.network.ApiRepository
+import com.example.simpleMovieListing.model.PriceModel
+import com.example.simpleMovieListing.network.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 @HiltViewModel
