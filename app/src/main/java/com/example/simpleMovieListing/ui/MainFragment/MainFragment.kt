@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.simpleMovieListing.databinding.FragmentMainBinding
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingAdapter
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingLoadStateAdapter
