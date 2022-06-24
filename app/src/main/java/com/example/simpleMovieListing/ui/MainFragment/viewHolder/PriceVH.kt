@@ -1,4 +1,4 @@
-package com.example.simpleMovieListing.ui.viewHolder
+package com.example.simpleMovieListing.ui.MainFragment.viewHolder
 
 import android.view.View
 import android.widget.TextView
@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simpleMovieListing.model.PriceModel
 import com.example.simpleMovieListing.R
-import com.example.simpleMovieListing.adapter.PagingAdapter
+import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingAdapter
 
 class PriceVH(vm: ViewModel, itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    val symbol:TextView = itemView.findViewById<TextView>(R.id.symbol)
+    val symbol:TextView = itemView.findViewById(R.id.symbol)
 
     var callback: PagingAdapter.PagingAdapterCallback? = null
 

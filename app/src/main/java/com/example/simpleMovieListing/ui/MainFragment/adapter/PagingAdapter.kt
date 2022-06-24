@@ -1,4 +1,4 @@
-package com.example.simpleMovieListing.adapter
+package com.example.simpleMovieListing.ui.MainFragment.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.simpleMovieListing.model.PriceModel
-import com.example.simpleMovieListing.ui.viewHolder.PriceVH
+import com.example.simpleMovieListing.ui.MainFragment.viewHolder.PriceVH
 import com.example.simpleMovieListing.R
 
 class PagingAdapter(val vm: ViewModel): PagingDataAdapter<PriceModel, PriceVH>(PROFILE_COMPARATOR) {

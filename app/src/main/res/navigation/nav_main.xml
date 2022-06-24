@@ -6,17 +6,17 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.simpleMovieListing.ui.MainFragment"
+        android:name="com.example.simpleMovieListing.ui.MainFragment.MainFragment"
         android:label="MainFragment">
 
     </fragment>
 
     <fragment
-        android:id="@+id/symbolFragment"
-        android:name="com.example.simpleMovieListing.ui.SymbolFragment"
-        android:label="SymbolFragment">
+        android:id="@+id/detailFragment"
+        android:name="com.example.simpleMovieListing.ui.DetailFragment"
+        android:label="DeatilFragment">
 
-        <deepLink app:uri="@string/internal_deeplink_symbol" />
+        <deepLink app:uri="@string/internal_deeplink_detail" />
 
         <argument
             android:name="symbol"

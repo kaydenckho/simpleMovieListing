@@ -1,9 +1,9 @@
-package com.example.simpleMovieListing.adapter
+package com.example.simpleMovieListing.ui.MainFragment.adapter
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import com.example.simpleMovieListing.ui.viewHolder.NetworkStateItemVH
+import com.example.simpleMovieListing.ui.MainFragment.viewHolder.NetworkStateItemVH
 
 class PagingLoadStateAdapter (
     private val adapter: PagingAdapter

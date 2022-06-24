@@ -1,8 +1,8 @@
-package com.example.simpleMovieListing.adapter
+package com.example.simpleMovieListing.ui.MainFragment.adapter
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.simpleMovieListing.ui.MainFragmentVM
+import com.example.simpleMovieListing.ui.MainFragment.MainFragmentVM
 import com.example.simpleMovieListing.model.PriceModel
 
 class PagingSource(

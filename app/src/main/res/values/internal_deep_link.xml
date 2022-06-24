@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="internal_deeplink_symbol">app://mainFragment?symbol={symbol}</string>
+    <string name="internal_deeplink_detail">app://mainFragment?detail={detail}</string>
 </resources>

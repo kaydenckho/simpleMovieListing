@@ -8,16 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SymbolFragmentVM @Inject constructor() : ViewModel() {
+class DetailFragmentVM @Inject constructor() : ViewModel() {
 
     @Inject
     lateinit var apiRepository: ApiRepository
-
-    val priceLiveData = MutableLiveData<PriceModel>()
-
-    suspend fun getSymbol(symbol: String)  {
-        apiRepository.getSymbol(symbol).collect {
-            priceLiveData.value = it
-        }
-    }
 }

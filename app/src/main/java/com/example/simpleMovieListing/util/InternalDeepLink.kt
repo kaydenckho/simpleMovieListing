@@ -44,10 +44,10 @@ class InternalDeepLink(val context: Context, val navController: NavController) {
 
     }
 
-    fun goSymbolFragment(symbol: String){
-        val deepLinkUrl = context.getString(R.string.internal_deeplink_symbol)
+    fun goDetailFragment(symbol: String){
+        val deepLinkUrl = context.getString(R.string.internal_deeplink_detail)
         val updatedUrl = deepLinkUrl
-            .replace("{symbol}", symbol)
+            .replace("{detail}", symbol)
         navDeepLinkCall(updatedUrl.toUri(), genNavOptions("right", null, false))
     }
 
@@ -55,31 +55,34 @@ class InternalDeepLink(val context: Context, val navController: NavController) {
         val navOptions = NavOptions.Builder()
         when(slideInType.toLowerCase()){
             "top" -> {
-                navOptions.setExitAnim(R.anim.fade_out)
-                navOptions.setPopEnterAnim(R.anim.fade_in)
+                navOptions.setPopEnterAnim(R.anim.slide_in_top)
                 navOptions.setEnterAnim(R.anim.slide_in_top)
-                navOptions.setPopExitAnim(R.anim.slide_out_top)
-            }
-            "bottom" -> {
-                navOptions.setExitAnim(R.anim.fade_out)
-                navOptions.setPopEnterAnim(R.anim.fade_in)
-                navOptions.setEnterAnim(R.anim.slide_in_bottom)
+                navOptions.setExitAnim(R.anim.slide_out_bottom)
                 navOptions.setPopExitAnim(R.anim.slide_out_bottom)
             }
-            "left" -> {
-                navOptions.setExitAnim(R.anim.fade_out)
-                navOptions.setPopEnterAnim(R.anim.fade_in)
-                navOptions.setEnterAnim(R.anim.slide_in_left)
-                navOptions.setPopExitAnim(R.anim.slide_out_left)
+            "bottom" -> {
+                navOptions.setPopEnterAnim(R.anim.slide_in_bottom)
+                navOptions.setEnterAnim(R.anim.slide_in_bottom)
+                navOptions.setExitAnim(R.anim.slide_out_top)
+                navOptions.setPopExitAnim(R.anim.slide_out_top)
             }
-            "right" -> {
-                navOptions.setExitAnim(R.anim.fade_out)
-                navOptions.setPopEnterAnim(R.anim.fade_in)
-                navOptions.setEnterAnim(R.anim.slide_in_right)
+            "left" -> {
+                navOptions.setPopEnterAnim(R.anim.slide_in_left)
+                navOptions.setEnterAnim(R.anim.slide_in_left)
+                navOptions.setExitAnim(R.anim.slide_out_right)
                 navOptions.setPopExitAnim(R.anim.slide_out_right)
             }
+            "right" -> {
+                navOptions.setPopEnterAnim(R.anim.slide_in_right)
+                navOptions.setEnterAnim(R.anim.slide_in_right)
+                navOptions.setExitAnim(R.anim.slide_out_left)
+                navOptions.setPopExitAnim(R.anim.slide_out_left)
+            }
             else -> {
-
+                navOptions.setPopEnterAnim(R.anim.fade_in)
+                navOptions.setEnterAnim(R.anim.fade_in)
+                navOptions.setExitAnim(R.anim.fade_out)
+                navOptions.setPopExitAnim(R.anim.fade_out)
             }
         }
 

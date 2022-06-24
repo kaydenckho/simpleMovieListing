@@ -1,4 +1,4 @@
-package com.example.simpleMovieListing.ui.viewHolder
+package com.example.simpleMovieListing.ui.MainFragment.viewHolder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

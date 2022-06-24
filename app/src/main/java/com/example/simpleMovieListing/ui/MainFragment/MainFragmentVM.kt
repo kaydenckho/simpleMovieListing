@@ -1,11 +1,11 @@
-package com.example.simpleMovieListing.ui
+package com.example.simpleMovieListing.ui.MainFragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import com.example.simpleMovieListing.adapter.PagingSource
+import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingSource
 import com.example.simpleMovieListing.model.PriceModel
 import com.example.simpleMovieListing.network.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
