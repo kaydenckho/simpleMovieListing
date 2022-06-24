@@ -31,9 +31,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (_binding == null){
-            _binding = FragmentDetailBinding.inflate(layoutInflater)
-        }
+        _binding = FragmentDetailBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -56,5 +54,10 @@ class DetailFragment : Fragment(), View.OnClickListener {
         when (v){
             binding.headerBackTxt -> findNavController().navigateUp()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

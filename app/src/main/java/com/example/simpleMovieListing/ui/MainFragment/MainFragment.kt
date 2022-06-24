@@ -6,15 +6,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.simpleMovieListing.R
 import com.example.simpleMovieListing.databinding.FragmentMainBinding
 import com.example.simpleMovieListing.model.Movie
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingAdapter
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingLoadStateAdapter
 import com.example.simpleMovieListing.util.InternalDeepLink
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -29,26 +35,49 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (_binding == null) {
-            _binding = FragmentMainBinding.inflate(layoutInflater)
-        }
-        val adapter = PagingAdapter(vm)
+        _binding = FragmentMainBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val callback = object : PagingAdapter.PagingAdapterCallback {
             override fun onMovieClick(movie: Movie) {
                 InternalDeepLink(this@MainFragment).goDetailFragment(movie)
             }
         }
+        val adapter = PagingAdapter(vm)
         adapter.callback = callback
         binding.listing.adapter = adapter.withLoadStateHeaderAndFooter(
             header = PagingLoadStateAdapter(adapter),
             footer = PagingLoadStateAdapter(adapter)
         )
-        binding.listing.itemAnimator = null
-        lifecycleScope.launchWhenCreated {
-            vm.pagingListData().collect {
-                adapter.submitData(it)
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                vm.pagingListData().collect {
+                    adapter.submitData(it)
+                }
             }
         }
-        return binding.root
+        binding.viewType.setOnClickListener { imageView->
+            binding.listing.layoutManager.let { lm->
+                if (lm is GridLayoutManager){
+                    if (lm.spanCount == 3){
+                        lm.spanCount = 1
+                        imageView.isActivated = true
+                    }
+                    else{
+                        lm.spanCount = 3
+                        imageView.isActivated = false
+                    }
+                    adapter.notifyItemRangeChanged(0, adapter.itemCount)
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

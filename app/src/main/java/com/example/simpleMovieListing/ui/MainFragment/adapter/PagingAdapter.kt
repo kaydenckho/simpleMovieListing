@@ -1,6 +1,7 @@
 package com.example.simpleMovieListing.ui.MainFragment.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
@@ -31,7 +32,7 @@ class PagingAdapter(private val vm: ViewModel) :
         }
     }
 
-    private val layoutManager: GridLayoutManager? = null
+    private var layoutManager: GridLayoutManager? = null
 
     enum class ViewType {
         LIST,
@@ -50,8 +51,7 @@ class PagingAdapter(private val vm: ViewModel) :
             if (holder is MovieGridVH) {
                 holder.onBind(it)
                 holder.callback = callback
-            }
-            else if (holder is MovieListVH){
+            } else if (holder is MovieListVH) {
                 holder.onBind(it)
                 holder.callback = callback
             }
@@ -77,6 +77,11 @@ class PagingAdapter(private val vm: ViewModel) :
                 MovieListVH(binding.root, binding)
             }
         }
+    }
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        layoutManager = recyclerView.layoutManager as GridLayoutManager?
     }
 
     override fun getItemViewType(position: Int): Int {

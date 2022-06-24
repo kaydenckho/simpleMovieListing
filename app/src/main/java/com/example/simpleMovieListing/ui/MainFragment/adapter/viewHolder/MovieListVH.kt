@@ -12,6 +12,7 @@ class MovieListVH(itemView: View, private val binding: MovieViewholderListBindin
 
     fun onBind(item: Movie){
         binding.name.text = item.name
+        binding.avatar.setImageURI(item.poster)
         binding.name.setOnClickListener {
             callback?.onMovieClick(item)
         }
