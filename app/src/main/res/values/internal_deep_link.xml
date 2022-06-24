@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY internalDeeplinkStart "internal_app://">
+    <!ENTITY internalDeeplinkEnd "?pageBundleModel={pageBundleModel}">
+    ]>
 <resources>
-    <string name="internal_deeplink_detail">app://mainFragment?detail={detail}</string>
+    <string name="internal_deeplink_detail">&internalDeeplinkStart;detailFragment&internalDeeplinkEnd;</string>
 </resources>

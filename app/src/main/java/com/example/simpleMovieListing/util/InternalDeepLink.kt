@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.simpleMovieListing.MyApplication
 import com.example.simpleMovieListing.R
+import com.example.simpleMovieListing.model.Movie
 import com.google.gson.Gson
 import java.lang.reflect.Type
 
@@ -44,11 +45,11 @@ class InternalDeepLink(val context: Context, val navController: NavController) {
 
     }
 
-    fun goDetailFragment(symbol: String){
-        val deepLinkUrl = context.getString(R.string.internal_deeplink_detail)
-        val updatedUrl = deepLinkUrl
-            .replace("{detail}", symbol)
-        navDeepLinkCall(updatedUrl.toUri(), genNavOptions("right", null, false))
+    fun goDetailFragment(movie: Movie){
+        var deepLinkUrl = context.getString(R.string.internal_deeplink_detail)
+        val modelString = convertModelToJsonString(movie, Movie::class.java)
+        deepLinkUrl = deepLinkUrl.replace(PAGE_BUNDLE_MODEL, modelString)
+        navDeepLinkCall(deepLinkUrl.toUri(), genNavOptions("right", null, false))
     }
 
     private fun genNavOptions(slideInType: String, popUpId: Int?, inclusive: Boolean): NavOptions {

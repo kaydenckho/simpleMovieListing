@@ -3,9 +3,6 @@ package com.example.simpleMovieListing.ui.MainFragment.adapter
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.simpleMovieListing.R
 import com.example.simpleMovieListing.ui.MainFragment.adapter.viewHolder.NetworkStateItemVH
 
 class PagingLoadStateAdapter (

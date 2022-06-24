@@ -14,5 +14,8 @@ class MovieGridVH(itemView: View, private val binding: MovieViewholderGridBindin
     fun onBind(item: Movie){
         binding.avatar.setImageURI(item.poster)
         binding.name.text = item.name
+        itemView.setOnClickListener {
+            callback?.onMovieClick(item)
+        }
     }
 }

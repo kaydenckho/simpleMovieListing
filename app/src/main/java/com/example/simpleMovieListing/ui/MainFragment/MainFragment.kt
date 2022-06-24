@@ -9,9 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.simpleMovieListing.databinding.FragmentMainBinding
+import com.example.simpleMovieListing.model.Movie
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingAdapter
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingLoadStateAdapter
 import com.example.simpleMovieListing.util.InternalDeepLink
@@ -35,8 +34,8 @@ class MainFragment : Fragment() {
         }
         val adapter = PagingAdapter(vm)
         val callback = object : PagingAdapter.PagingAdapterCallback {
-            override fun onMovieClick(uuid: String) {
-                InternalDeepLink(this@MainFragment).goDetailFragment(uuid)
+            override fun onMovieClick(movie: Movie) {
+                InternalDeepLink(this@MainFragment).goDetailFragment(movie)
             }
         }
         adapter.callback = callback

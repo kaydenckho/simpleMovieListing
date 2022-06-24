@@ -39,7 +39,7 @@ class PagingAdapter(private val vm: ViewModel) :
     }
 
     interface PagingAdapterCallback {
-        fun onMovieClick(uuid: String)
+        fun onMovieClick(movie: Movie)
     }
 
     var callback: PagingAdapterCallback? = null

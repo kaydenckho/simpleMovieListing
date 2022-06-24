@@ -14,14 +14,14 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.simpleMovieListing.ui.DetailFragment.DetailFragment"
-        android:label="DeatilFragment">
+        android:label="DetailFragment">
 
         <deepLink app:uri="@string/internal_deeplink_detail" />
 
         <argument
-            android:name="symbol"
+            android:name="pageBundleModel"
             app:argType="string"
-            android:defaultValue=""/>
+            android:defaultValue="" />
 
     </fragment>
 
