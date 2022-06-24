@@ -1,7 +1,6 @@
 package com.example.simpleMovieListing.ui.MainFragment
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
@@ -11,9 +10,17 @@ import com.example.simpleMovieListing.network.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
+import kotlin.math.absoluteValue
 
 @HiltViewModel
-class MainFragmentVM @Inject constructor() : ViewModel() {
+class MainFragmentVM @Inject constructor(private val state: SavedStateHandle) : ViewModel() {
+
+    val spanCount: MutableLiveData<Int> = state.getLiveData<Int>("spanCount")
+
+    fun setSpanCount(count: Int) {
+        spanCount.value = count
+        state["spanCount"] = count
+    }
 
     @Inject
     lateinit var apiRepository: ApiRepository

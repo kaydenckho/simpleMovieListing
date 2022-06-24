@@ -10,6 +10,7 @@
     <color name="text">#FF000000</color>
     <color name="background">#FFFFFFFF</color>
     <color name="light_dark">#222222</color>
+    <color name="grey">#2b2b2b</color>
     <color name="yellow">#fffe00</color>
 
 </resources>

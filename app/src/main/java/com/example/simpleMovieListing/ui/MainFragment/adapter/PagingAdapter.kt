@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simpleMovieListing.databinding.MovieViewholderGridBinding
 import com.example.simpleMovieListing.databinding.MovieViewholderListBinding
 import com.example.simpleMovieListing.model.Movie
+import com.example.simpleMovieListing.ui.MainFragment.MainFragmentVM
 import com.example.simpleMovieListing.ui.MainFragment.adapter.viewHolder.MovieGridVH
 import com.example.simpleMovieListing.ui.MainFragment.adapter.viewHolder.MovieListVH
 
-class PagingAdapter(private val vm: ViewModel) :
+class PagingAdapter(private val vm: MainFragmentVM) :
     PagingDataAdapter<Movie, RecyclerView.ViewHolder>(PROFILE_COMPARATOR) {
     companion object {
         val PROFILE_COMPARATOR = object : DiffUtil.ItemCallback<Movie>() {
@@ -85,7 +86,7 @@ class PagingAdapter(private val vm: ViewModel) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (layoutManager?.spanCount == 1) ViewType.LIST.ordinal
+        return if (vm.spanCount.value == 1) ViewType.LIST.ordinal
         else ViewType.GRID.ordinal
     }
 

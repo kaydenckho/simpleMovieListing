@@ -3,6 +3,7 @@
 package com.example.simpleMovieListing.ui.MainFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +28,7 @@ class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-
+    private var layoutManager: GridLayoutManager? = null
     val vm: MainFragmentVM by viewModels()
 
     override fun onCreateView(
@@ -52,8 +53,13 @@ class MainFragment : Fragment() {
             header = PagingLoadStateAdapter(adapter),
             footer = PagingLoadStateAdapter(adapter)
         )
+        layoutManager = GridLayoutManager(requireContext(), vm.spanCount.value?:3)
+        binding.listing.layoutManager = layoutManager
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                vm.spanCount.observe(viewLifecycleOwner) {
+                    layoutManager?.spanCount = it
+                }
                 vm.pagingListData().collect {
                     adapter.submitData(it)
                 }
@@ -63,17 +69,23 @@ class MainFragment : Fragment() {
             binding.listing.layoutManager.let { lm->
                 if (lm is GridLayoutManager){
                     if (lm.spanCount == 3){
-                        lm.spanCount = 1
+                        vm.setSpanCount(1)
                         imageView.isActivated = true
                     }
                     else{
-                        lm.spanCount = 3
+                        vm.setSpanCount(3)
                         imageView.isActivated = false
                     }
+
                     adapter.notifyItemRangeChanged(0, adapter.itemCount)
                 }
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        vm.setSpanCount(layoutManager?.spanCount ?:3)
     }
 
     override fun onDestroy() {

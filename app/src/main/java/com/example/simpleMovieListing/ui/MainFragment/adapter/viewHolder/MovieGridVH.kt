@@ -16,7 +16,7 @@ class MovieGridVH(itemView: View, private val binding: MovieViewholderGridBindin
         binding.run {
             avatar.setImageURI(item.poster)
             name.text = item.name
-            rating.text = ((item.rating*100).roundToInt()/100).toString()
+            rating.text = ((item.rating*100f).roundToInt()/100f).toString()
             like.text = item.likeCount.toString()
             comment.text = item.reviewCount.toString()
         }
