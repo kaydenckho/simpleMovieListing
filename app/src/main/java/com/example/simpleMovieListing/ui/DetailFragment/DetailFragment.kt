@@ -1,6 +1,6 @@
-/** TagHive Android Dev Demo - Created by Ka Ho Cheung at 28/Apr/2022 **/
+/** Movie6 Android Dev Demo - Created by Ka Ho Cheung at 23/Jun/2022 **/
 
-package com.example.simpleMovieListing.ui
+package com.example.simpleMovieListing.ui.DetailFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

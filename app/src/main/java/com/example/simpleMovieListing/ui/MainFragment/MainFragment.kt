@@ -1,4 +1,4 @@
-/** Movie6 Android Dev Demo - Created by Ka Ho Cheung at 23/06/2022 **/
+/** Movie6 Android Dev Demo - Created by Ka Ho Cheung at 23/Jun/2022 **/
 
 package com.example.simpleMovieListing.ui.MainFragment
 
@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.simpleMovieListing.databinding.FragmentMainBinding
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingAdapter
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingLoadStateAdapter
-import com.example.simpleMovieListing.databinding.FragmentMainBinding
 import com.example.simpleMovieListing.util.InternalDeepLink
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,13 +28,13 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (_binding == null){
+        if (_binding == null) {
             _binding = FragmentMainBinding.inflate(layoutInflater)
         }
         val adapter = PagingAdapter(vm)
-        val callback = object: PagingAdapter.PagingAdapterCallback{
-            override fun onSymbolClick(symbol: String) {
-                InternalDeepLink(this@MainFragment).goDetailFragment(symbol)
+        val callback = object : PagingAdapter.PagingAdapterCallback {
+            override fun onMovieClick(uuid: String) {
+                InternalDeepLink(this@MainFragment).goDetailFragment(uuid)
             }
         }
         adapter.callback = callback

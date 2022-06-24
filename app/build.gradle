@@ -59,12 +59,14 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.38.1")
     kapt "com.google.dagger:hilt-android-compiler:2.37"
     //lifecycle
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-beta01")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc02")
     // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-beta01")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc02")
     // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-beta01")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc02")
     // navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
+    // Fresco
+    implementation 'com.facebook.fresco:fresco:2.6.0'
 }

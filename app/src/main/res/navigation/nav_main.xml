@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.simpleMovieListing.ui.DetailFragment"
+        android:name="com.example.simpleMovieListing.ui.DetailFragment.DetailFragment"
         android:label="DeatilFragment">
 
         <deepLink app:uri="@string/internal_deeplink_detail" />

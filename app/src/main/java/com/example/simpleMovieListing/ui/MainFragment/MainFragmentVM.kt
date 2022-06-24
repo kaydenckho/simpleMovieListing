@@ -6,7 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingSource
-import com.example.simpleMovieListing.model.PriceModel
+import com.example.simpleMovieListing.model.Movie
 import com.example.simpleMovieListing.network.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.flow
@@ -18,8 +18,8 @@ class MainFragmentVM @Inject constructor() : ViewModel() {
     @Inject
     lateinit var apiRepository: ApiRepository
 
-    fun getPrices() = flow<List<PriceModel>> {
-        apiRepository.getAllPrices().collect {
+    fun getMovies() = flow {
+        apiRepository.getMovies().collect {
             emit(it)
         }
     }
