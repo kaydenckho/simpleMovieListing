@@ -3,6 +3,7 @@ package com.example.simpleMovieListing.ui.MainFragment
 import androidx.lifecycle.*
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.simpleMovieListing.ui.MainFragment.adapter.PagingSource
 import com.example.simpleMovieListing.model.Movie
@@ -16,6 +17,8 @@ import kotlin.math.absoluteValue
 class MainFragmentVM @Inject constructor(private val state: SavedStateHandle) : ViewModel() {
 
     val spanCount: MutableLiveData<Int> = state.getLiveData<Int>("spanCount")
+
+    val movies = MutableLiveData<PagingData<Movie>>()
 
     fun setSpanCount(count: Int) {
         spanCount.value = count

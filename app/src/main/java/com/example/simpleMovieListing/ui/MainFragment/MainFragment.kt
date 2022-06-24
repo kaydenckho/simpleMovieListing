@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.simpleMovieListing.R
 import com.example.simpleMovieListing.databinding.FragmentMainBinding
@@ -42,50 +43,49 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val callback = object : PagingAdapter.PagingAdapterCallback {
-            override fun onMovieClick(movie: Movie) {
-                InternalDeepLink(this@MainFragment).goDetailFragment(movie)
-            }
-        }
-        val adapter = PagingAdapter(vm)
-        adapter.callback = callback
-        binding.listing.adapter = adapter.withLoadStateHeaderAndFooter(
-            header = PagingLoadStateAdapter(adapter),
-            footer = PagingLoadStateAdapter(adapter)
-        )
-        layoutManager = GridLayoutManager(requireContext(), vm.spanCount.value?:3)
-        binding.listing.layoutManager = layoutManager
         lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                val callback = object : PagingAdapter.PagingAdapterCallback {
+                    override fun onMovieClick(movie: Movie) {
+                        InternalDeepLink(this@MainFragment).goDetailFragment(movie)
+                    }
+                }
+                val adapter = PagingAdapter(vm)
+                adapter.callback = callback
+                binding.listing.adapter = adapter.withLoadStateHeaderAndFooter(
+                    header = PagingLoadStateAdapter(adapter),
+                    footer = PagingLoadStateAdapter(adapter)
+                )
+                layoutManager = GridLayoutManager(requireContext(), vm.spanCount.value ?: 3)
+                binding.listing.layoutManager = layoutManager
+                binding.viewType.setOnClickListener { imageView ->
+                    binding.listing.layoutManager.let { lm ->
+                        if (lm is GridLayoutManager) {
+                            if (lm.spanCount == 3) {
+                                vm.setSpanCount(1)
+                                imageView.isActivated = true
+                            } else {
+                                vm.setSpanCount(3)
+                                imageView.isActivated = false
+                            }
+
+                            adapter.notifyItemRangeChanged(0, adapter.itemCount)
+                        }
+                    }
+                }
                 vm.spanCount.observe(viewLifecycleOwner) {
                     layoutManager?.spanCount = it
                 }
+                vm.movies.observe(viewLifecycleOwner) {
+                    lifecycleScope.launch {
+                        adapter.submitData(it)
+                    }
+                }
                 vm.pagingListData().collect {
-                    adapter.submitData(it)
+                    vm.movies.value = it
                 }
             }
         }
-        binding.viewType.setOnClickListener { imageView->
-            binding.listing.layoutManager.let { lm->
-                if (lm is GridLayoutManager){
-                    if (lm.spanCount == 3){
-                        vm.setSpanCount(1)
-                        imageView.isActivated = true
-                    }
-                    else{
-                        vm.setSpanCount(3)
-                        imageView.isActivated = false
-                    }
-
-                    adapter.notifyItemRangeChanged(0, adapter.itemCount)
-                }
-            }
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        vm.setSpanCount(layoutManager?.spanCount ?:3)
     }
 
     override fun onDestroy() {
